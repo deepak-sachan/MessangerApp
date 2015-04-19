@@ -22,6 +22,7 @@ public class MysettingArrayAdapter extends ArrayAdapter {
         this.values =values;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater= (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
