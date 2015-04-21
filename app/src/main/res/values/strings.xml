@@ -8,5 +8,7 @@
     <string name="main_empty_list">There is no recent conversation, write new message
 		to start one.</string>
     <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_profile_text">ProfileTextActivity</string>
 
 </resources>

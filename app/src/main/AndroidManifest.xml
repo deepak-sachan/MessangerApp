@@ -36,6 +36,14 @@
             android:name=".SettingActivity"
             android:label="Setting" >
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name=".ProfileTextActivity"
+            android:label="@string/title_activity_profile_text" >
+        </activity>
     </application>
 
 </manifest>

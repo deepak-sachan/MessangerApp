@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.example.deepak.messangerapp.ProfileActivity">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivprofile"
+        android:src="@drawable/flower"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp" />
+        <ImageView
+            android:id="@+id/ivprofilepicture"
+            android:src="@drawable/ic_action_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="35dp"
+            android:layout_alignBottom="@+id/ivprofile"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvprofilename"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Edit "
+        android:textSize="30dp"
+        android:background="@drawable/edittext_profile"
+        android:inputType="text" />
+        <ImageView
+            android:id="@+id/imageviewprofiletext"
+           android:paddingRight="15dp"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/key"
+            android:layout_alignBottom="@+id/tvprofilename"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+             />
+    </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
