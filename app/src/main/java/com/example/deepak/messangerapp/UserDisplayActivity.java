@@ -57,14 +57,11 @@ public class UserDisplayActivity extends ActionBarActivity {
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContentResolver().query(selectedImage,
-
                     filePathColumn, null, null, null);
-
             cursor.moveToFirst();
-
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-
             String picturePath = cursor.getString(columnIndex);
+
             DBHelper dbHelper = new DBHelper(getApplicationContext());
             Message message =new Message("one","two",picturePath,"");
             dbHelper.insertMessages(message.getMYMessage(),message.getOthermessage(),message.getImage(),message.getVideo());

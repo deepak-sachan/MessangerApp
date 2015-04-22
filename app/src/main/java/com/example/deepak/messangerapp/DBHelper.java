@@ -14,12 +14,13 @@ import java.util.ArrayList;
  */
 public class DBHelper extends SQLiteOpenHelper {
     private int oldVersion;
-    private static final int newVersion = 12;
+    private static final int newVersion = 13;
     private SQLiteDatabase db;
 
     public static final String DATABASE_NAME = "MyDBName.db";
     public static final String CONTACTS_TABLE_NAME = "contacts";
     public static final String MESSAGES_TABLE_NAME = "messages";
+    public static final String PROFILE_TABLE_NAME = "profile";
 
 
     public static final String CONTACTS_COLUMN_ID = "id";
@@ -34,6 +35,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String MESSAGES_COLUMN_MESSAGEIMAGE = "image";
     public static final String MESSAGES_COLUMN_MESSAGEVIDEO = "video";
 
+    public static final String PROFILE_COLUMN_ID = "id";
+    public static final String PROFILE_IMAGE = "profileimage";
+    public static final String PROFILE_TEXT = "profiletext";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, newVersion);
@@ -48,6 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table contacts (id integer primary key, name text,status text,`from` text,image text)");
         db.execSQL("create table messages (id integer primary key, mymessage text,othermessage text, image text,video text)");
+        db.execSQL("create table profile (id integer primary key, profileimage text,profiletext text)");
 
     }
 
@@ -56,6 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
         this.oldVersion = oldVersion;
         db.execSQL("DROP TABLE IF EXISTS contacts");
         db.execSQL("DROP TABLE IF EXISTS messages");
+        db.execSQL("DROP TABLE IF EXISTS profile");
         onCreate(db);
     }
 
@@ -156,6 +162,33 @@ public class DBHelper extends SQLiteOpenHelper {
         for (Message message : Message.getMessages()) {
             insertMessages(message.getMYMessage(), message.getOthermessage(), message.getImage(), message.getVideo());
         }
+    }
 
+    public Cursor getAllProfile() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(PROFILE_TABLE_NAME, new String[]{PROFILE_IMAGE, PROFILE_TEXT}, null, null, null, null, null);
+        return cursor;
+    }
+
+    public Cursor getProfile() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from profile limit 1", null);
+        return cursor;
+
+
+    }
+
+    public void deleteaAllProfiles() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("delete from profile where 1", null);
+    }
+
+    public boolean insertProfile(String profileimage, String profiletext) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("profileimage", profileimage);
+        contentValues.put("profiletext", profiletext);
+        db.insert("profile", null, contentValues);
+        return true;
     }
 }

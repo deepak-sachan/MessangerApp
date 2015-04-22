@@ -14,8 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class ProfileTextActivity extends ActionBarActivity {
+
     private static int RESULT_LOAD_IMAGE = 2;
    EditText editText;
     Button button1;
